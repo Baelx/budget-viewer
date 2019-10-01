@@ -2,14 +2,40 @@ import React, {Component} from 'react';
 
 class Table extends Component {
 
-    // constructor(props) {
-    //     this.props;
-    // }
+    constructor(props) {
+      super(props);
+      // this.props;
+      this.state = {
+        rows: 1
+      };
+      this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+      this.setState(prevState => {
+        return {
+          rows: prevState.rows + 1
+        }
+      })
+    }
 
     render() {
+      let tableRows = [];
+      for(let i = 0; i < this.state.rows; i++) {
+        tableRows.push(
+          <tr>
+          <th scope="col">{this.props.title}</th>
+          <th scope="col">Description</th>
+          <th scope="col">Amount</th>
+        </tr>
+        )
+        }
+
         return (
-            <table class="table table-responsive">
-            <thead class="thead-dark">
+          <div>
+
+          <table className="table table-responsive">
+            <thead className="thead-dark">
               <tr>
                 <th scope="col">{this.props.title}</th>
                 <th scope="col">Description</th>
@@ -17,23 +43,11 @@ class Table extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><input type="text" value=""></input></td>
-                <td>Otto</td>
-                <th scope="row"><input type="number"></input></th>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <th scope="row"><input type="number"></input></th>
-              </tr>
-              <tr>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <th scope="row"><input type="number"></input></th>
-              </tr>
+              {tableRows}
             </tbody>
           </table>
+          <button onClick={this.handleClick}>Add Row</button>
+          </div>
         )
     }
 }

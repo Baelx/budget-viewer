@@ -6,10 +6,10 @@ class Header extends Component {
     render() {
         return (
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <h1 class="navbar-brand">Budget Viewer</h1>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <h1 className="navbar-brand">Budget Viewer</h1>
 
-            <div class="navbar" id="navbarNav">
+            <div className="navbar" id="navbarNav">
                     <DisplayDate />
             </div>
             </nav>

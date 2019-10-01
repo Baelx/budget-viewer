@@ -8,7 +8,7 @@ class DisplayDate extends Component {
     
     render() {
         return (
-            <div class="">{this.state.date.toLocaleDateString()}</div>
+            <div className="">{this.state.date.toLocaleDateString()}</div>
         )
     }
 }
